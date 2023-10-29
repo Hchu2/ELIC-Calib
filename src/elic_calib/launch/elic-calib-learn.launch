@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<launch>
+    <node pkg="elic_calib" type="elic_calib_learn" name="elic_calib_learn_node" output="screen">
+        <param name="config_filename"
+               value="$(find elic_calib)/config/elic-config-sim-imus-lidars-cameras.yaml"
+               type="string"/>
+        <param name="shot_screen_save_dir" value="$(find elic_calib)/scene" type="string"/>
+    </node>
+</launch>

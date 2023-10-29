@@ -1,0 +1,22 @@
+[info]-[10:55:1] this is a 'info' message
+[info]-[10:55:1] this is a 'info' message
+
+[process]-[10:55:1] we all know that 'pi' equals to 3.1415926536
+[process]-[10:55:1] we all know that 'pi' equals to 3.1415926536
+
+[warning]-[10:55:1] It's time to eat!
+[warning]-[10:55:1] It's time to eat!
+
+[error]-[10:55:1] the file hasn't been closed! (0)
+[error]-[10:55:1] the file hasn't been closed! (0)
+
+[fatal]-[10:55:1] the vector elems are: [1, 5, 6, 2, 4, 78]
+[fatal]-[10:55:1] the vector elems are: [1, 5, 6, 2, 4, 78]
+
+[info]-[10:55:1] the standard of the langs are: [{'python': 3.8}, {'cpp': std11}]
+[info]-[10:55:1] the standard of the langs are: [{'python': 3.8}, {'cpp': std11}]
+
+-- Hello, world!
+-- Hello, world!
+
+-- m: [{'python': 3.8}, {'cpp': std11}], pi: 3.1415926536

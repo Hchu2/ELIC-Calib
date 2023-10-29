@@ -106,7 +106,7 @@ This is an initial version of a toolkit for spatiotemporal calibration of Multip
   
 
 ## Run simulated dataset
-A example of simulated dataset and reference spatiotemporal parameters are available at [OneDrive](https://whueducn-my.sharepoint.com/:f:/g/personal/lishengyu_whu_edu_cn/Er5siA8MLGhPrkCHwh1hMTwB4zVG5mB0oreY71tGDfA_0g?e=ZHK1UV "simu"). Note that there is no error in the simulation data. You can add Gaussian white noise error as needed. 
+An example of simulated dataset and reference spatiotemporal parameters are available at [OneDrive](https://whueducn-my.sharepoint.com/:f:/g/personal/lishengyu_whu_edu_cn/Er5siA8MLGhPrkCHwh1hMTwB4zVG5mB0oreY71tGDfA_0g?e=ZHK1UV "simu"). For more details on how to generate simulation environment and simulation data, please contact the author.
 
 1. Download the simulated dataset
 2. Modify the default yaml in “elic-calib.launch” to "elic-config-sim.yaml"
@@ -114,13 +114,13 @@ A example of simulated dataset and reference spatiotemporal parameters are avail
 4. Turn on "dt = 0.0;" on line 481 of "lidar_data_loader.cpp" and catkin_make again
 5. Source it and run it! "roslaunch elic_calib elic_calib.launch"
 
-<div align=center><img src="./img/scene2.png" width =25%><img src="./img/scene2.png" width =25%></div>
-<div align=center><img src="img/simu_platform.png" width =50%><img src="./img/aligned_map.png" width =50%></div>
-<div align=center><img src="img/sim_scenario.png" width =50%></div>
+<div align=center><img src="./img/scene1.png" width =25%><img src="./img/scene2.png" width =25%></div>
+<div align=center><img src="img/simu_platform.png" width =50%></div>
+<div align=center><img src="img/aligned_map.png" width =50%><img src="./img/sim_scenario.png" width =50%></div>
 
 
 ## Run real-world dataset
-A example of real-world dataset and reference spatiotemporal parameters are available at [OneDrive](https://whueducn-my.sharepoint.com/:f:/g/personal/lishengyu_whu_edu_cn/Etyi3L5GWJFBkfI4YhlamFEBP2ASsvk5UTVvZvJP1UDiLg?e=Rm4yix "real").
+An example of real-world dataset and reference spatiotemporal parameters are available at [OneDrive](https://whueducn-my.sharepoint.com/:f:/g/personal/lishengyu_whu_edu_cn/Etyi3L5GWJFBkfI4YhlamFEBP2ASsvk5UTVvZvJP1UDiLg?e=Rm4yix "real").
 
 1. Download the real-world dataset
 2. Modify the default yaml in “elic-calib.launch” to "elic-config-real.yaml"

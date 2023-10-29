@@ -1,0 +1,24 @@
+@startuml logger
+skinparam DefaultFontName "Ubuntu Mono"
+scale 200
+
+abstract Logger{
+    # _loggerOS
+    + info(argvs)
+    + warning(argvs)
+    + process(argvs)
+    + fatal(argvs)
+    + error(argvs)
+    # curTime()
+}
+class FileLogger
+class StdLogger
+
+FileLogger --|> Logger
+StdLogger --|> Logger
+
+object stdCoutLogger
+
+stdCoutLogger .left. StdLogger :  is-a >
+
+@enduml

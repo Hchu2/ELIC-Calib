@@ -1,0 +1,79 @@
+# important options:
+# CalibData
+# Optimization::TimeOffsetPadding
+# LiDAROdometer::NDTResolution
+# LiDAROdometer::UpdateMapUntil
+
+# MULTI_LiDAR_IMU
+SolveMode: "MULTI_LiDAR_IMU"
+
+CalibData:
+  IMUs:
+    - Topic: "/imu0_raw_frames"
+    - Topic: "/imu1_raw_frames"
+  # support lidar types:
+  # VLP_16_PACKET, VLP_16_SIMU, VLP_16_POINTS, VLP_32E_POINTS
+  # OUSTER_16_POINTS OUSTER_32_POINTS, OUSTER_64_POINTS, OUSTER_128_POINTS
+  # LIVOX_MID70, LIVOX_MID70_SIMU
+  LiDARs:
+    - Topic: "/velodyne_raw_frames"
+      Type: "VLP_32E_POINTS"
+    - Topic: "/livox_raw_frames"
+      Type: "LIVOX_MID70"
+  BagPath: "/home/lsy/open_dataset/realworld/lidar_imu.bag"
+  ParamSavePath: "/home/lsy/open_dataset/realworld/output/params.json"
+  # the time piece: [BegTime, BegTime + Duration], unit: second(s)
+  # if you want to use all time data for calibration, please set them to negative numbers
+  BeginTime: 60.0
+  Duration: 30.0
+  # BeginTime: 60.0
+  # Duration: 30.0
+  OutputData:
+    OutputDataDir: "/home/lsy/open_dataset/realworld/output"
+    OutputIMUFrame: false
+    OutputLiDARFrame: false
+    OutputLMEquationGraph: true
+    OutputParamInEachIter: true
+
+Optimization:
+  UseCuda: false
+  # Whether to optimize the time offset, locking means do not optimize the time offset.
+  LockTimeOffset: false
+  # # Whether to optimize the intrinsic coeff(This refers to the imu internal parameters), locking means it is not optimized.
+  LockIMUIntrinsic: false
+  OptWeight:
+    GyroWeight: 1.0
+    AcceWeight: 1.0
+    # lidar point to plane
+    LidarWeight: 1.0
+    # used to fix the first imu pose to be identity
+    SO3Weight: 1.0
+    POSWeight: 1.0
+  # if set this value smaller than one, it will be set to std::thread::hardware_concurrency()
+  ThreadNum: 10
+  # max iterations
+  CeresIterations: 100
+  # the optimization bounds, make this value be positive
+  TimeOffsetPadding: 0.03
+  # rs-camera readout time padding
+  TimeReadoutPadding: 0.03
+  ProgressToStdout: true
+  RefineIterations: 8
+
+BSpline:
+  # for LiDARs/Cameras sensor suites, this field should be larger, e.g. 0.06
+  KnotTimeDistance: 0.02
+
+LiDAROdometer:
+  # 0.5 for indoor case and 1.0 for outdoor case
+  NDTResolution: 0.5
+  NDTKeyFrameDownSample: 0.1
+  # if set this value smaller than one, it will be set to std::thread::hardware_concurrency()
+  ThreadNum: 10
+  # unit: frames
+  UpdateMapUntil: 300
+
+DataAssociate:
+  AssociateRadius: 0.05
+  # range [0.0, 1.0)
+  PlaneLambdaThd: 0.6
